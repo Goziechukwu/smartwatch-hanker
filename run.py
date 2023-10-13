@@ -48,3 +48,9 @@ def check_inventory(orders):
             print(f"We can fulfill the request for {ordered_quantity} units of {product}.")
         else:
             print(f"Insufficient stock for {product}. Available quantity: {available_quantity}. Ordered quantity: {ordered_quantity}.")
+
+# Get customer orders from the inventory manager
+customer_orders = get_customer_orders()
+
+# Call the function to check inventory
+check_inventory(customer_orders)
