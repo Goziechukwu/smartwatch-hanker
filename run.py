@@ -22,6 +22,7 @@ stock_data = stock.get_all_records()
 # Get all product names in stock worksheet
 products = stock.col_values(1)
 
+
 # Get customer orders from the inventory manager
 def get_customer_orders():
     """
@@ -41,29 +42,57 @@ def get_customer_orders():
         print("Product name should be correctly typed in lowercase characters")
         print("and quantity should be numbers only\n")
 
-        try:            
-            product = input("Enter product name (or 'done' to finish): ")
-
-            if {product} in products:
-                return product
-
-            else:
-                print("Invalid product name, please enter a valid product name")
-        
-
-            quantity = int(input(f"Enter quantity of {product}: "))
-            return quantity
-        
-        except ValueError:
-            print("Invalid quantity value, please enter a number\n")
+        product = input("Enter product name (or 'done' to finish): ")
 
         if product.lower() == 'done':
             break
-        
+        quantity = int(input(f"Enter quantity of {product}: "))
         orders.append({"Product": product, "Quantity": quantity})
 
-        
     return orders
+
+# Get customer orders from the inventory manager
+# def get_customer_orders():
+#     """
+#     Get customer orders input from the user.
+#     I run a while loop to collect a valid string of product name
+#     and of product quantity from the user via the terminal,
+#     The while loop will repeatedly request data, until it is valid
+#     and the user types the word- 'done'.
+#     """    
+    
+#     orders = []
+
+#     while True:
+#         print("Please enter product name where asked,")
+#         print("and then enter quantity ordered where asked too.")
+#         print("Type the word 'done' without the quotations when you finish.")
+#         print("Product name should be correctly typed in lowercase characters")
+#         print("and quantity should be numbers only\n")
+
+#         try:            
+#             product = input("Enter product name (or 'done' to finish): ")
+
+#             if {product} in products:
+#                 return product
+
+#             else:
+#                 print("Invalid product name, please enter a valid product name")
+        
+
+#             quantity = int(input(f"Enter quantity of {product}: "))
+#             return quantity
+        
+#         except ValueError:
+#             print("Invalid quantity value, please enter a number\n")
+
+#         if product.lower() == 'done':
+#             break
+
+#         orders.append({"Product": product, "Quantity": quantity})
+
+        
+#     return orders
 
 
 # Compare customer orders with available stock
