@@ -29,3 +29,22 @@ def get_customer_orders():
         quantity = int(input(f"Enter quantity of {product}: "))
         orders.append({"Product": product, "Quantity": quantity})
     return orders
+
+# Compare customer orders with available stock
+def check_inventory(orders):
+    for order in orders:
+        product = order['Product']
+        ordered_quantity = order['Quantity']
+        available_quantity = 0
+        
+        # Find available quantity in stock data
+        for item in stock_data:
+            if item['Product'] == product:
+                available_quantity = item['Quantity']
+                break
+        
+        # Compare available quantity with ordered quantity
+        if available_quantity >= ordered_quantity:
+            print(f"We can fulfill the request for {ordered_quantity} units of {product}.")
+        else:
+            print(f"Insufficient stock for {product}. Available quantity: {available_quantity}. Ordered quantity: {ordered_quantity}.")
