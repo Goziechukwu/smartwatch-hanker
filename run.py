@@ -40,21 +40,18 @@ def update_inventory():
     """
     while True:
         update_stock = input("Do you want to update the inventory (y/n): ")
+        
         if update_stock.lower() not in ("y", "yes"):
             break                    
         else:
             new_product = input("Enter new product name: \n")
 
-            while True:
-    
-                try:
-                    new_quantity = int(input(f"Enter quantity of {new_product}: \n"))
+            try:
+                new_quantity = int(input(f"Enter quantity of {new_product}: \n"))
 
-                except ValueError:
-                    print("Invalid quantity value, please enter a number\n")
-                    continue
-
-                return new_quantity
+            except ValueError:
+                print("Invalid quantity value, please enter a number\n")
+                continue
 
             print(f"Updating inventory...\n")
 
@@ -86,7 +83,7 @@ def get_customer_orders():
 
         orders.append({"Product": product, "Quantity": quantity})
 
-        another_product = input("Do you want to add another product (y/n): ")
+        another_product = input("Do you want to add another product? (y/n): ")
         if another_product.lower() not in ("y", "yes"):
             break
 
@@ -126,22 +123,22 @@ def check_inventory(orders):
     Compare orders with stock and for each item product
     and report possibility of fulfilling order requests.
     """
+
+    print("Checking stock ...\n")
+    print("Determining the possibility of meeting your orders ...\n")
     
     for order in orders:
         product = order['Product']
         ordered_quantity = order['Quantity']
         available_quantity = 0
         
-        # Find available quantity in stock data
+        # find available quantity in stock data
         for item in stock_data:
             if item['Product'] == product:
                 available_quantity = item['Quantity']
                 break
         
-        # Compare available quantity with ordered quantity
-        print("Checking stock ...\n")
-        print("Determining the possibility of meeting your orders ...\n")
-        
+        # compare available quantity with ordered quantity        
         if available_quantity >= ordered_quantity:
             print(f"We can fulfill the request for {ordered_quantity} units of {product}.\n")
         else:
@@ -152,12 +149,13 @@ def main():
     """
     Calling all program functions
     """
-    
+    # calls the function to update inventory
     update_inventory()
-    # Get customer orders from the inventory manager
+
+    # gets customer orders from the inventory manager
     customer_orders = get_customer_orders()
  
-    # Call the function to check inventory
+    # calls the function to check inventory
     check_inventory(customer_orders)
 
 print("Welcome to Smartwatch Hanker Inventory Management\n")
