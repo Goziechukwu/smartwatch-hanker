@@ -37,7 +37,7 @@ def get_customer_orders():
     Get customer orders input from the user.
     I run a while loop to collect a valid string of product name
     and of product quantity from the user via the terminal,
-    The while loop will repeatedly request data, until it is valid.
+    The while loop will repeatedly request input data, until it is valid.
     """    
     
     orders = []
@@ -77,6 +77,7 @@ def validate_quantity(product):
     
         try:
             quantity = int(input(f"Enter quantity of {product}: \n"))
+
         except ValueError:
             print("Invalid quantity value, please enter a number\n")
             continue
@@ -86,6 +87,11 @@ def validate_quantity(product):
 
 # Compare customer orders with available stock
 def check_inventory(orders):
+
+    """
+    Compare orders with stock and for each item product
+    and report possibility of fulfilling order requests.
+    """
     
     for order in orders:
         product = order['Product']
@@ -101,6 +107,7 @@ def check_inventory(orders):
         # Compare available quantity with ordered quantity
         print("Checking stock ...\n")
         print("Determining the possibility of meeting your orders ...\n")
+        
         if available_quantity >= ordered_quantity:
             print(f"We can fulfill the request for {ordered_quantity} units of {product}.\n")
         else:
@@ -108,6 +115,9 @@ def check_inventory(orders):
 
 
 def main():
+    """
+    Calling all program functions
+    """
      # Get customer orders from the inventory manager
      customer_orders = get_customer_orders()
  
