@@ -118,11 +118,11 @@ def main():
     """
     Calling all program functions
     """
-     # Get customer orders from the inventory manager
-     customer_orders = get_customer_orders()
+    # Get customer orders from the inventory manager
+    customer_orders = get_customer_orders()
  
-     # Call the function to check inventory
-     check_inventory(customer_orders)
+    # Call the function to check inventory
+    check_inventory(customer_orders)
 
 print("Welcome to Smartwatch Hanker Inventory Management\n")
 main()
