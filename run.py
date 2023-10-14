@@ -26,7 +26,6 @@ products = stock.col_values(1)
 INPUT_INSTRUCTIONS = """
 Please enter product name where asked,
 and then enter quantity ordered where asked too.
-Type the word 'done' without the quotations when you finish.
 Product name should be correctly typed in lowercase characters
 and quantity should be numbers only\n
 """
@@ -50,10 +49,13 @@ def get_customer_orders():
 
         product = validate_product()
 
-        if product.lower() == 'done':
-            break
-        quantity = int(input(f"Enter quantity of {product}: "))
+        quantity = validate_quantity(product)
+
         orders.append({"Product": product, "Quantity": quantity})
+
+        another_product = input("Do you want to add another product (y/n): ")
+        if another_product.lower() not in ("y", "yes"):
+            break
 
     return orders
 
@@ -61,13 +63,26 @@ def get_customer_orders():
 def validate_product():
     while True:
 
-        product = input("Enter product name (or 'done' to finish): ")
+        product = input("Enter product name: ")
 
         if product not in products:
             print("Invalid product name, please enter a valid product name")
             continue
  
         return product
+
+
+def validate_quantity(product):
+    
+    while True:
+    
+        try:
+            quantity = int(input(f"Enter quantity of {product}: "))
+        except ValueError:
+            print("Invalid quantity value, please enter a number\n")
+            continue
+
+        return quantity
 
 
 # Compare customer orders with available stock
