@@ -38,8 +38,9 @@ def update_inventory():
     adding a new row containing the new product and quantity
     at the end of the stock inventory.
     """
+    update_stock = input("Do you want to update the inventory? (y/n): ")
+
     while True:
-        update_stock = input("Do you want to update the inventory (y/n): ")
         
         if update_stock.lower() not in ("y", "yes"):
             break                    
@@ -55,7 +56,12 @@ def update_inventory():
 
             print(f"Updating inventory...\n")
 
-            stock.append_row([new_product, new_quantity])   
+            stock.append_row([new_product, new_quantity])
+
+            update_another_stock = input("Do you want to add another update? (y/n): ")
+            
+            if update_another_stock.lower() not in ("y", "yes"):
+                break
 
     print("Inventory updated successfully\n")
 
