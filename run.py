@@ -44,12 +44,9 @@ def get_customer_orders():
     
     orders = []
 
-    while True:
-        print("Please enter product name where asked,")
-        print("and then enter quantity ordered where asked too.")
-        print("Type the word 'done' without the quotations when you finish.")
-        print("Product name should be correctly typed in lowercase characters")
-        print("and quantity should be numbers only\n")
+    print(INPUT_INSTRUCTIONS)
+
+    while True:        
 
         product = input("Enter product name (or 'done' to finish): ")
 
