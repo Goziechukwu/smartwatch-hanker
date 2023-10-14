@@ -48,7 +48,7 @@ def get_customer_orders():
 
     while True:        
 
-        product = input("Enter product name (or 'done' to finish): ")
+        product = validate_product()
 
         if product.lower() == 'done':
             break
@@ -56,6 +56,18 @@ def get_customer_orders():
         orders.append({"Product": product, "Quantity": quantity})
 
     return orders
+
+
+def validate_product():
+    while True:
+
+        product = input("Enter product name (or 'done' to finish): ")
+
+        if product not in products:
+            print("Invalid product name, please enter a valid product name")
+            continue
+ 
+        return product
 
 
 # Compare customer orders with available stock
