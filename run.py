@@ -27,7 +27,7 @@ INPUT_INSTRUCTIONS = """
 Please enter product name where asked,
 and then enter quantity ordered where asked too.
 Product name should be correctly typed in lowercase characters
-and quantity should be numbers only\n
+and quantity should be numbers only.\n
 """
 
 
@@ -37,8 +37,7 @@ def get_customer_orders():
     Get customer orders input from the user.
     I run a while loop to collect a valid string of product name
     and of product quantity from the user via the terminal,
-    The while loop will repeatedly request data, until it is valid
-    and the user types the word- 'done'.
+    The while loop will repeatedly request data, until it is valid.
     """    
     
     orders = []
@@ -63,10 +62,10 @@ def get_customer_orders():
 def validate_product():
     while True:
 
-        product = input("Enter product name: ")
+        product = input("Enter product name: \n")
 
         if product not in products:
-            print("Invalid product name, please enter a valid product name")
+            print("Invalid product name, please enter a valid product name\n")
             continue
  
         return product
@@ -77,7 +76,7 @@ def validate_quantity(product):
     while True:
     
         try:
-            quantity = int(input(f"Enter quantity of {product}: "))
+            quantity = int(input(f"Enter quantity of {product}: \n"))
         except ValueError:
             print("Invalid quantity value, please enter a number\n")
             continue
@@ -100,10 +99,12 @@ def check_inventory(orders):
                 break
         
         # Compare available quantity with ordered quantity
+        print("Checking stock ...\n")
+        print("Determining the possibility of meeting your orders ...\n")
         if available_quantity >= ordered_quantity:
-            print(f"We can fulfill the request for {ordered_quantity} units of {product}.")
+            print(f"We can fulfill the request for {ordered_quantity} units of {product}.\n")
         else:
-            print(f"Insufficient stock for {product}. Available quantity: {available_quantity}. Ordered quantity: {ordered_quantity}.")
+            print(f"Insufficient stock for {product}. Available quantity: {available_quantity}. Ordered quantity: {ordered_quantity}.\n")
 
 
 def main():
@@ -113,4 +114,5 @@ def main():
      # Call the function to check inventory
      check_inventory(customer_orders)
 
+print("Welcome to Smartwatch Hanker Inventory Management\n")
 main()
