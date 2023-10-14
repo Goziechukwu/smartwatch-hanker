@@ -24,11 +24,45 @@ products = stock.col_values(1)
 
 
 INPUT_INSTRUCTIONS = """
-Please enter product name where asked,
-and then enter quantity ordered where asked too.
+To compare ordered quantities with available stock:
+Please enter product name when asked,
+and then enter quantity ordered when asked too.
 Product name should be correctly typed in lowercase characters
 and quantity should be numbers only.\n
 """
+
+
+def update_inventory():
+    """
+    Update the stock inventory,
+    adding a new row containing the new product and quantity
+    at the end of the stock inventory.
+    """
+    while True:
+        update_stock = input("Do you want to update the inventory (y/n): ")
+        if update_stock.lower() not in ("y", "yes"):
+            break                    
+        else:
+            new_product = input("Enter new product name: \n")
+
+            while True:
+    
+                try:
+                    new_quantity = int(input(f"Enter quantity of {new_product}: \n"))
+
+                except ValueError:
+                    print("Invalid quantity value, please enter a number\n")
+                    continue
+
+                return new_quantity
+
+            print(f"Updating inventory...\n")
+
+            stock.append_row([new_product, new_quantity])   
+
+    print("Inventory updated successfully\n")
+
+    return
 
 
 # Get customer orders from the inventory manager
@@ -118,6 +152,8 @@ def main():
     """
     Calling all program functions
     """
+    
+    update_inventory()
     # Get customer orders from the inventory manager
     customer_orders = get_customer_orders()
  
