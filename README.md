@@ -4,95 +4,55 @@ Smartwatch Hanker is an inventory management eCommerce platform designed with Py
 
 ## Using Smartwatch Hanker
 
-Upon visiting Smartwatch Hanker's platform, the user will be greeted with a welcoming message, and first of all asked if .
+Upon visiting Smartwatch Hanker's platform, the user will be greeted with a welcoming message, and first of all asked if the user wants to update the inventory. If the user answers a 'yes', the user is given the opportunity to add stock values to the inventory, but if the user answers a 'no' or any other character or word, the user is taken to the check inventory step. The platform is responsive to all device types and works effectively on all browser types.
 
-<img src="./assets/images/responsiveness-screenshot.png" alt="Responsiveness screenshot">
+<img src="./assets/images/responsiveness.png" alt="Responsiveness screenshot">
  
-Source: [Responsivity measurement](https://ui.dev/amiresponsive?url=https://goziechukwu.github.io/decor-awesome/)
+Source: [Responsivity measurement](https://ui.dev/amiresponsive?url=https://smartwatch-hanker-d850ba2552c2.herokuapp.com/)
 
 ## Features
 
-### • Navigation Bar
 
-The navigation bar is displayed on all three pages of the website, including links to the Logo, Home page, Gallery and Sign Up.
+### • Update Inventory
 
-The navigation bar is fully responsive to all device-size types, from desktops, to laptops, tablets, handsets.
+The first input function in the platform is for updating the inventory. The user is asked to input new stock with values of product name and quantity. The user can input as many new stock as possible and the google worksheet adds every new stock to the bottom of the old stock worksheet in the google spreadsheet of stocks.
 
-<img src="./assets/images/navigation-highlight-image.PNG" alt="Navigation highlight image">
-
-### • The landing page image
-
-<img src="./assets/images/landing-page-image-screenshot.png" alt="Landing page image">
-
-[Source of Landing Page Image](https://unsplash.com/photos/0jmXOqUhpTQ)
+<img src="./assets/images/update-inventory.PNG" alt="Update Inventory image">
 
 
-### • Enhanced Mood Section
+### • Getting Customer Orders
 
-o Showing the benefits of using our decoration hacks.
+The next input function in the platform is for getting the customer orders. This function allows the user input customer ordered products with their corresponding quantities and saves the user's inputs in order to use the inputs to compare with the available stock.
 
-o Highlighting the benefits as relevant for student-life experience.
+<img src="./assets/images/customer-orders.png" alt="Customer Orders image">
 
-<img src="./assets/images/enhanced-mood-section-screenshot.png" alt="enhanced-mood-section-screenshot">
 
-### • Services Section
+### • Check Inventory
 
-o Showing the advancing range of services provided to meet the specific change-of-state(mood) need of a student, at any relevant period of his semester and also at holidays.
+The check inventory input function compares the inputed quantity of each ordered product with the corresponding stock quantity value, for all inputed customer orders. The function further gives report to the user whether there is enough quantity of product in stock to meet the quantity ordered. In the case that the quantity ordered is greater than the quantity in stock, the function tells the user what quantity was orderd and also what quantity is available in stock of the product, so that the user can quickly have a good estimate of what quantity might be required to meet the quantity ordered.
 
-o Showing how Decor Awesome provides both simple and advanced room decoration techniques for different expected enhancements of moods and states
+<img src="./assets/images/check-inventory.png" alt="Check Inventory image">
 
-<img src="./assets/images/services-section-screenshot.png" alt="Services section screenshot">
-
-### • The Footer
-
-o The footer contains links to relevant social media sites.
-
-<img src="./assets/images/footer-image-screenshot.png" alt="Footer image screenshot">
-
-### • Gallery
-
-<img src="./assets/images/gallery-images-screenshot.png" alt="Gallery images screenshot">
-
-### • The Sign Up Page
-
-<img src="./assets/images/sign-up-page-screenshot-1.png" alt="Sign Up page first screenshot">
-
-<img src="./assets/images/sign-up-page-screenshot-2.png" alt="Sign Up page second screenshot">
 
 ## Technologies Used:
 
-• The following programming languages were used:
+• The platform was created with the Python 3 programming language and gspread and json libraries were imported and used. A google spreadsheet containing a worksheet having all the available stock products and their corresponding quantity values was used. The link to the google spreadsheet is as follows:
 
-- HTML5
-
-- CSS3
+[Google Spreadsheet of Stock Values](https://docs.google.com/spreadsheets/d/1g8xChW8Bc8L3gRskRAvlpJbzW4Tld_9Tezh3JE8Ubd8/edit?usp=sharing)
 
 • The workspace used to write the code was:
 
 - Codeanywhere workspace
 
-• All codes and commits were pushed to:
+• All codes and commits were pushed to GitHub repository
 
-- GitHub repository
-
-• The library in google that was used for the fonts is:
-
-- Font Awesome
-
-• The styling layout (framework) used for the gallery section was:
-
-- Masonry layout
-
-The website looks the same when opened on different kinds of browsers. I have observed that the website's user interface looks the same on the Google Chrome, the Mozilla Firefox and the Microsoft browsers.
+• The terminal used to run the code was the Code Institute's Heroku mock terminal:
 
 ## Validation Testing
 
-The HTML and CSS codes have been tested for validation in the w3C HTML Validator and the w3C (Jigsaw) CSS Validator respectively, and no errors were returned.
+The python code used in the platform was passed through the Pycode linter and tested for validation, and no errors were returned.
 
 <img src="./assets/images/validation-testing-screenshot-1.png" alt="First Validation Testing">
-
-
-<img src="./assets/images/validation-testing-screenshot-2.png" alt="Second Validation Testing">
 
 
 ## Accessibility Requirements

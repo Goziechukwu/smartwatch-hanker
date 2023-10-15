@@ -41,27 +41,29 @@ def update_inventory():
     update_stock = input("Do you want to update the inventory? (y/n): ")
 
     while True:
-        
         if update_stock.lower() not in ("y", "yes"):
-            break                    
+            break
         else:
             new_product = input("Enter new product name: \n")
 
-            try:
-                new_quantity = int(input(f"Enter quantity of {new_product}: \n"))
+            while True:
+                try:
+                    new_quantity = int(input(
+                        f"Enter quantity of {new_product}: \n"))
 
-            except ValueError:
-                print("Invalid quantity value, please enter a number\n")
-                continue
+                except ValueError:
+                    print("Invalid quantity value, please enter a number\n")
+                    continue
+                break
 
             print(f"Updating inventory...\n")
 
             stock.append_row([new_product, new_quantity])
 
-            update_another_stock = input("Do you want to add another update? (y/n): ")
-            
+            update_another_stock = input(
+                "Do you want to add another update? (y/n): ")
             print("Inventory updated successfully\n")
-            
+
             if update_another_stock.lower() not in ("y", "yes"):
                 break
 
@@ -75,13 +77,13 @@ def get_customer_orders():
     I run a while loop to collect a valid string of product name
     and of product quantity from the user via the terminal,
     The while loop will repeatedly request input data, until it is valid.
-    """    
-    
+    """
+
     orders = []
 
     print(INPUT_INSTRUCTIONS)
 
-    while True:        
+    while True:
 
         product = validate_product()
 
@@ -104,14 +106,14 @@ def validate_product():
         if product not in products:
             print("Invalid product name, please enter a valid product name\n")
             continue
- 
+
         return product
 
 
 def validate_quantity(product):
-    
+
     while True:
-    
+
         try:
             quantity = int(input(f"Enter quantity of {product}: \n"))
 
@@ -132,23 +134,27 @@ def check_inventory(orders):
 
     print("Checking stock ...\n")
     print("Determining the possibility of meeting your orders ...\n")
-    
+
     for order in orders:
         product = order['Product']
         ordered_quantity = order['Quantity']
         available_quantity = 0
-        
+
         # find available quantity in stock data
         for item in stock_data:
             if item['Product'] == product:
                 available_quantity = item['Quantity']
                 break
-        
-        # compare available quantity with ordered quantity        
+
+        # compare available quantity with ordered quantity
         if available_quantity >= ordered_quantity:
-            print(f"We can fulfill the request for {ordered_quantity} units of {product}.\n")
+            print(
+                f"We can fulfill the request"
+                f"for {ordered_quantity} units of {product}.\n")
         else:
-            print(f"Insufficient stock for {product}. Available quantity: {available_quantity}. Ordered quantity: {ordered_quantity}.\n")
+            print(f"Insufficient stock for {product}.")
+            print(f"Available quantity: {available_quantity}")
+            print(f"Ordered quantity: {ordered_quantity}\n")
 
 
 def main():
@@ -160,9 +166,10 @@ def main():
 
     # gets customer orders from the inventory manager
     customer_orders = get_customer_orders()
- 
+
     # calls the function to check inventory
     check_inventory(customer_orders)
+
 
 print("Welcome to Smartwatch Hanker Inventory Management\n")
 main()
