@@ -6,7 +6,7 @@ Smartwatch Hanker is an inventory management eCommerce platform designed with Py
 
 Upon visiting Smartwatch Hanker's platform, the user will be greeted with a welcoming message, and first of all asked if the user wants to update the inventory. If the user answers a 'yes', the user is given the opportunity to add stock values to the inventory, but if the user answers a 'no' or any other character or word, the user is taken to the check inventory step. The platform is responsive to all device types and works effectively on all browser types.
 
-<img src="./images/responsiveness.png" alt="Responsiveness screenshot">
+<img src="./images/responsiveness.PNG" alt="Responsiveness screenshot">
  
 Source: [Responsivity measurement](https://ui.dev/amiresponsive?url=https://smartwatch-hanker-d850ba2552c2.herokuapp.com/)
 
@@ -24,14 +24,14 @@ The first input function in the platform is for updating the inventory. The user
 
 The next input function in the platform is for getting the customer orders. This function allows the user input customer ordered products with their corresponding quantities and saves the user's inputs in order to use the inputs to compare with the available stock.
 
-<img src="./images/customer-orders.png" alt="Customer Orders image">
+<img src="./images/customer-orders.PNG" alt="Customer Orders image">
 
 
 ### • Check Inventory
 
 The check inventory input function compares the inputed quantity of each ordered product with the corresponding stock quantity value, for all inputed customer orders. The function further gives report to the user whether there is enough quantity of product in stock to meet the quantity ordered. In the case that the quantity ordered is greater than the quantity in stock, the function tells the user what quantity was orderd and also what quantity is available in stock of the product, so that the user can quickly have a good estimate of what quantity might be required to meet the quantity ordered.
 
-<img src="./images/check-inventory.png" alt="Check Inventory image">
+<img src="./images/check-inventory.PNG" alt="Check Inventory image">
 
 
 ## Technologies Used:
@@ -75,7 +75,7 @@ I had a challenge with creating a Try/Except block for quantity input validation
 
 ## Contact information
 
-The website developer's contact details are as follows:
+The developer's contact details are as follows:
 
 Email: inekwegoziechukwu@gmail.com
 
