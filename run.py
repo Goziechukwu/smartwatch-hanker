@@ -60,10 +60,10 @@ def update_inventory():
 
             update_another_stock = input("Do you want to add another update? (y/n): ")
             
+            print("Inventory updated successfully\n")
+            
             if update_another_stock.lower() not in ("y", "yes"):
                 break
-
-    print("Inventory updated successfully\n")
 
     return
 
