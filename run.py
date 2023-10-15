@@ -149,7 +149,7 @@ def check_inventory(orders):
         # compare available quantity with ordered quantity
         if available_quantity >= ordered_quantity:
             print(
-                f"We can fulfill the request"
+                f"We can fulfill the request "
                 f"for {ordered_quantity} units of {product}.\n")
         else:
             print(f"Insufficient stock for {product}.")
