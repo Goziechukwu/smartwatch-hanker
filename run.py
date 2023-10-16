@@ -114,7 +114,7 @@ def update_inventory():
             new_product = True
             confirm_insert = input(
                 "This product does not exist in inventory. Do you want to "
-                "add it as a new product? (y/n)\n"
+                "add it as a new product? (y/n):\n"
             )
             if confirm_insert not in ("y", "yes"):
                 break
