@@ -16,11 +16,11 @@ SHEET = GSPREAD_CLIENT.open('smartwatch_hanker')
 
 
 # Get available stock data
-stock = SHEET.worksheet('stock')
-stock_data = stock.get_all_records()
+stock = SHEET.worksheet("stock")
+stock_data = None
 
 # Get all product names in stock worksheet
-products = stock.col_values(1)
+products = None
 
 
 INPUT_INSTRUCTIONS = """
@@ -37,6 +37,14 @@ USER_OPERATIONS = """
 3. Update inventory for a product.
 4. Exit
 """
+
+
+def refresh_stock_data():
+    global stock_data
+    global products
+
+    stock_data = stock.get_all_records()
+    products = stock.col_values(1)
 
 
 # Get customer orders from the inventory manager
@@ -95,38 +103,56 @@ def validate_quantity(product):
 
 def update_inventory():
     """
-    Update the stock inventory,
-    adding a new row containing the new product and quantity
-    at the end of the stock inventory.
+    Updates the stock inventory for a given product.
+    If new product is being added, new record will be added to sheet.
     """
-    update_stock = input("Do you want to update the inventory? (y/n):\n")
 
     while True:
-        if update_stock.lower() not in ("y", "yes"):
+        product = input("Enter product name: \n")
+        new_product = False
+        if product not in products:
+            new_product = True
+            confirm_insert = input(
+                "This product does not exist in inventory. Do you want to "
+                "add it as a new product? (y/n)\n"
+            )
+            if confirm_insert not in ("y", "yes"):
+                break
+
+        while True:
+            try:
+                new_quantity = int(input(f"Enter quantity of {product}: \n"))
+
+            except ValueError:
+                print("Invalid quantity value, please enter a number\n")
+                continue
             break
+
+        print(f"Updating inventory...\n")
+
+        if new_product:
+            stock.append_row([product, new_quantity])
         else:
-            new_product = input("Enter new product name: \n")
+            cell = stock.find(product)
+            if cell:
+                row = cell.row
+                col = cell.col
 
-            while True:
-                try:
-                    new_quantity = int(input(
-                        f"Enter quantity of {new_product}: \n"))
+                old_qty = int(stock.cell(row, col + 1).value)
+                updated_qty = old_qty + new_quantity
 
-                except ValueError:
-                    print("Invalid quantity value, please enter a number\n")
-                    continue
-                break
+                stock.update_cell(row, col + 1, updated_qty)
+                pass
 
-            print(f"Updating inventory...\n")
+        print("Inventory updated successfully\n")
+        refresh_stock_data()
 
-            stock.append_row([new_product, new_quantity])
+        update_another_stock = input(
+            "Do you want to add another update? (y/n):\n"
+        )
 
-            update_another_stock = input(
-                "Do you want to add another update? (y/n):\n")
-            print("Inventory updated successfully\n")
-
-            if update_another_stock.lower() not in ("y", "yes"):
-                break
+        if update_another_stock.lower() not in ("y", "yes"):
+            break
 
     return
 
@@ -158,6 +184,8 @@ def check_inventory(orders):
             print(
                 f"We can fulfill the request "
                 f"for {ordered_quantity} units of {product}.\n")
+            print(f"Available quantity: {available_quantity}")
+            print(f"Ordered quantity: {ordered_quantity}\n")
         else:
             print(f"Insufficient stock for {product}.")
             print(f"Available quantity: {available_quantity}")
@@ -168,17 +196,17 @@ def main():
     """
     Calling all program functions
     """
-    refresh_stok_data()
+    refresh_stock_data()
     print("Welcome to Smartwatch Hanker Inventory Management\n")
 
     while True:
         print(USER_OPERATIONS)
-        user_input = input("Please enter your choice:")
+        user_input = input("Please enter your choice (serial no.):\n")
 
         if user_input == "1":
             # print("\n".join(products))
             for index, product in enumerate(products):
-                print(f"{index+1}: {product}")
+                print(f"{index}: {product}")
         elif user_input == "2":
             customer_orders = get_customer_orders()
             check_inventory(customer_orders)
