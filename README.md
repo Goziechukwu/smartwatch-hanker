@@ -4,7 +4,7 @@ Smartwatch Hanker is an inventory management eCommerce platform designed with Py
 
 ## Using Smartwatch Hanker
 
-Upon visiting Smartwatch Hanker's platform, the user will be greeted with a welcoming message, and first of all asked if the user wants to update the inventory. If the user answers a 'yes', the user is given the opportunity to add stock values to the inventory, but if the user answers a 'no' or any other character or word, the user is taken to the check inventory step. The platform is responsive to all device types and works effectively on all browser types.
+Upon visiting Smartwatch Hanker's platform, the user will be greeted with a welcoming message, and then given a list of operation options from which the user could choose what to do. They options are either to view the available products in stock, check stock availablity for customer orders received in a day, update the inventory or exit the program. The user is then given the opportunity in an input prompt to select what the user wants to do. The platform is responsive to all device types and works effectively on all browser types.
 
 <img src="./images/responsiveness.PNG" alt="Responsiveness screenshot">
  
@@ -13,11 +13,11 @@ Source: [Responsivity measurement](https://ui.dev/amiresponsive?url=https://smar
 ## Features
 
 
-### • Update Inventory
+### • See Inventory Product List
 
-The first input function in the platform is for updating the inventory. The user is asked to input new stock with values of product name and quantity. The user can input as many new stock as possible and the google worksheet adds every new stock to the bottom of the old stock worksheet in the google spreadsheet of stocks.
+The user is given the opportunity to see the available products in stock in the form of a serial arrangement of the products.
 
-<img src="./images/update-inventory.PNG" alt="Update Inventory image">
+<img src="./images/inventory-list.PNG" alt="Inventory List image">
 
 
 ### • Getting Customer Orders
@@ -27,9 +27,16 @@ The next input function in the platform is for getting the customer orders. This
 <img src="./images/customer-orders.PNG" alt="Customer Orders image">
 
 
+### • Update Inventory
+
+The first input function in the platform is for updating the inventory. The user is asked to input name of product and quantity of same product. If the product being typed in is not in the list of products, the app gives the user the possibility of adding that product and its quantity value as a new stock. This new stock is added to the table list of stocks in the google worksheet containing the stock data. But if the product typed in by the user is already contained in the list of stocks in the worksheet, the inputed quantity for that product will be added to the old quantity of the product, thus updating the product's quantity. The user can input as many new stocks as possible and the google worksheet adds every new stock to the bottom of the stock worksheet in the google spreadsheet of stocks.
+
+<img src="./images/update-inventory.PNG" alt="Update Inventory image">
+
+
 ### • Check Inventory
 
-The check inventory input function compares the inputed quantity of each ordered product with the corresponding stock quantity value, for all inputed customer orders. The function further gives report to the user whether there is enough quantity of product in stock to meet the quantity ordered. In the case that the quantity ordered is greater than the quantity in stock, the function tells the user what quantity was orderd and also what quantity is available in stock of the product, so that the user can quickly have a good estimate of what quantity might be required to meet the quantity ordered.
+The check inventory input function in the app compares the inputed quantity of each ordered product with the corresponding stock quantity value, for all inputed customer orders. The app, through this function, further gives report to the user whether there is sufficient quantity of product in stock to meet the quantity ordered. In every case, the app additionally tells the user what quantity was orderd and also what quantity is available in stock of the product, so that the user can quickly have a good grasp of what quantity was available and what quantity was ordered.
 
 <img src="./images/check-inventory.PNG" alt="Check Inventory image">
 
@@ -57,15 +64,16 @@ The python code used in the platform was passed through the Code Institute's CI 
 
 ## Deployment
 
-The eCommerce project was deployed using the Code Institute's Heroku mock terminal as follows:
+The eCommerce project was deployed using the Code Institute's Heroku mock terminal by the following major steps:
 
-- The author of the project first of all cloned the repository
-- Secondly, a new app was created in the Heroku platform
-- Thirdly, the key and value of the creds.json file and another key of "PORT" and value "8000" were all 
-  linked to the new app from the GitHub repository
-- Buildbacks were set, first to Python and then to NodeJS, in the new app
-- The new Heroku app was linked to the repository
-- The author then clicked on the "Deploy" button
+- Clone or fork the repository
+- Click the "Create a New App" button in the Heroku platform
+- Add the key: CREDS and the value of the creds.json file
+- Also add the key of "PORT" and value "8000"
+- Set buildbacks were set, first to Python and then to NodeJS, in the new app
+- Link the app to the repository
+- Click on the "Deploy" button (you can either choose the "automatic deploy" or the "manual deploy" option)
+- The project was deployed to heroku with the following link: [Smartwatch-Hanker Heroku App](https://smartwatch-hanker-d850ba2552c2.herokuapp.com/)
 
 
 ## Bugs, and How I Fixed Them
@@ -75,11 +83,13 @@ I had a challenge with creating a Try/Except block for quantity input validation
 
 ## Contact information
 
-The developer's contact details are as follows:
+The author's contact details are as follows:
 
 Email: inekwegoziechukwu@gmail.com
 
 ## Acknowledgements and References
+
+- _Deployment Steps_: Most of the content of the steps for deployment written above were written in the order and structure of the sample README document given by Code Institute for the Ultimate Battleships game.
 
 - _Deployment Terminal_: The deployment terminal used in the project was created by Code Institute.
 
