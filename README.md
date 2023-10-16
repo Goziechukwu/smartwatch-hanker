@@ -67,13 +67,14 @@ The python code used in the platform was passed through the Code Institute's CI 
 The eCommerce project was deployed using the Code Institute's Heroku mock terminal by the following major steps:
 
 - Clone or fork the repository
-- Click the "Create a New App" button in the Heroku platform
-- Add the key: CREDS and the value of the creds.json file
+- Click the "Create New App" button in the Heroku platform
+- Add the key: "CREDS" and the value of the creds.json file
 - Also add the key of "PORT" and value "8000"
-- Set buildbacks were set, first to Python and then to NodeJS, in the new app
+- Set the buildbacks, first to Python and then to NodeJS, for the new app
 - Link the app to the repository
-- Click on the "Deploy" button (you can either choose the "automatic deploy" or the "manual deploy" option)
-- The project was deployed to heroku with the following link: [Smartwatch-Hanker Heroku App](https://smartwatch-hanker-d850ba2552c2.herokuapp.com/)
+- Click on the "Deploy" button
+
+The project was deployed to heroku with the following link: [Smartwatch-Hanker Heroku App](https://smartwatch-hanker-d850ba2552c2.herokuapp.com/)
 
 
 ## Bugs, and How I Fixed Them
