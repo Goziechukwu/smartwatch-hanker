@@ -31,43 +31,12 @@ Product name should be correctly typed in lowercase characters
 and quantity should be numbers only.\n
 """
 
-
-def update_inventory():
-    """
-    Update the stock inventory,
-    adding a new row containing the new product and quantity
-    at the end of the stock inventory.
-    """
-    update_stock = input("Do you want to update the inventory? (y/n):\n")
-
-    while True:
-        if update_stock.lower() not in ("y", "yes"):
-            break
-        else:
-            new_product = input("Enter new product name: \n")
-
-            while True:
-                try:
-                    new_quantity = int(input(
-                        f"Enter quantity of {new_product}: \n"))
-
-                except ValueError:
-                    print("Invalid quantity value, please enter a number\n")
-                    continue
-                break
-
-            print(f"Updating inventory...\n")
-
-            stock.append_row([new_product, new_quantity])
-
-            update_another_stock = input(
-                "Do you want to add another update? (y/n):\n")
-            print("Inventory updated successfully\n")
-
-            if update_another_stock.lower() not in ("y", "yes"):
-                break
-
-    return
+USER_OPERATIONS = """
+1. See available products.
+2. Check stock availability for orders received in a day.
+3. Update inventory for a product.
+4. Exit
+"""
 
 
 # Get customer orders from the inventory manager
@@ -124,6 +93,44 @@ def validate_quantity(product):
         return quantity
 
 
+def update_inventory():
+    """
+    Update the stock inventory,
+    adding a new row containing the new product and quantity
+    at the end of the stock inventory.
+    """
+    update_stock = input("Do you want to update the inventory? (y/n):\n")
+
+    while True:
+        if update_stock.lower() not in ("y", "yes"):
+            break
+        else:
+            new_product = input("Enter new product name: \n")
+
+            while True:
+                try:
+                    new_quantity = int(input(
+                        f"Enter quantity of {new_product}: \n"))
+
+                except ValueError:
+                    print("Invalid quantity value, please enter a number\n")
+                    continue
+                break
+
+            print(f"Updating inventory...\n")
+
+            stock.append_row([new_product, new_quantity])
+
+            update_another_stock = input(
+                "Do you want to add another update? (y/n):\n")
+            print("Inventory updated successfully\n")
+
+            if update_another_stock.lower() not in ("y", "yes"):
+                break
+
+    return
+
+
 # Compare customer orders with available stock
 def check_inventory(orders):
 
@@ -161,15 +168,27 @@ def main():
     """
     Calling all program functions
     """
-    # calls the function to update inventory
-    update_inventory()
+    refresh_stok_data()
+    print("Welcome to Smartwatch Hanker Inventory Management\n")
 
-    # gets customer orders from the inventory manager
-    customer_orders = get_customer_orders()
+    while True:
+        print(USER_OPERATIONS)
+        user_input = input("Please enter your choice:")
 
-    # calls the function to check inventory
-    check_inventory(customer_orders)
+        if user_input == "1":
+            # print("\n".join(products))
+            for index, product in enumerate(products):
+                print(f"{index+1}: {product}")
+        elif user_input == "2":
+            customer_orders = get_customer_orders()
+            check_inventory(customer_orders)
+        elif user_input == "3":
+            update_inventory()
+        elif user_input == "4":
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
 
-print("Welcome to Smartwatch Hanker Inventory Management\n")
-main()
+if __name__ == "__main__":
+    main()
