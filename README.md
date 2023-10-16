@@ -13,9 +13,9 @@ Source: [Responsivity measurement](https://ui.dev/amiresponsive?url=https://smar
 ## Features
 
 
-### • See Inventory Product List
+### • View Inventory Product List
 
-The user is given the opportunity to see the available products in stock in the form of a serial arrangement of the products.
+The user is given the opportunity to view the available products in stock in the form of a serial arrangement of the products.
 
 <img src="./images/inventory-list.PNG" alt="Inventory List image">
 
