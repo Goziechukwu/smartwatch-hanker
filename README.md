@@ -22,16 +22,9 @@ The user is given the opportunity to view the available products in stock in the
 
 ### • Getting Customer Orders
 
-The next input function in the platform is for getting the customer orders. This function allows the user input customer ordered products with their corresponding quantities and saves the user's inputs in order to use the inputs to compare with the available stock.
+The app also performs the function of getting the customer orders. This function allows the user input customer ordered products with their corresponding quantities and saves the user's inputs in order to use the inputs to compare with the available stock.
 
 <img src="./images/customer-orders.PNG" alt="Customer Orders image">
-
-
-### • Update Inventory
-
-The first input function in the platform is for updating the inventory. The user is asked to input name of product and quantity of same product. If the product being typed in is not in the list of products, the app gives the user the possibility of adding that product and its quantity value as a new stock. This new stock is added to the table list of stocks in the google worksheet containing the stock data. But if the product typed in by the user is already contained in the list of stocks in the worksheet, the inputed quantity for that product will be added to the old quantity of the product, thus updating the product's quantity. The user can input as many new stocks as possible and the google worksheet adds every new stock to the bottom of the stock worksheet in the google spreadsheet of stocks.
-
-<img src="./images/update-inventory.PNG" alt="Update Inventory image">
 
 
 ### • Check Inventory
@@ -39,6 +32,13 @@ The first input function in the platform is for updating the inventory. The user
 The check inventory input function in the app compares the inputed quantity of each ordered product with the corresponding stock quantity value, for all inputed customer orders. The app, through this function, further gives report to the user whether there is sufficient quantity of product in stock to meet the quantity ordered. In every case, the app additionally tells the user what quantity was orderd and also what quantity is available in stock of the product, so that the user can quickly have a good grasp of what quantity was available and what quantity was ordered.
 
 <img src="./images/check-inventory.PNG" alt="Check Inventory image">
+
+
+### • Update Inventory
+
+The update inventory function allows the user to update the value of available quantity of products in the stock or to add a new product and its corresponding quantity to the stock. The user is asked to input name of product and quantity of same product. If the product being typed in is not in the list of products, the app gives the user the possibility of adding that product and its quantity value as a new stock. This new stock is added to the table list of stocks in the google worksheet containing the stock data. But if the product typed in by the user is already contained in the list of stocks in the worksheet, the inputed quantity for that product will be added to the old quantity of the product, thus updating the product's quantity. The user can input as many new stocks as possible and the google worksheet adds every new stock to the bottom of the table list in the stock worksheet of the google spreadsheet of stocks.
+
+<img src="./images/update-inventory.PNG" alt="Update Inventory image">
 
 
 ## Technologies Used:
