@@ -52,8 +52,7 @@ def get_customer_orders():
     """
     Get customer orders input from the user.
     I run a while loop to collect a valid string of product name
-    and of product quantity from the user via the terminal,
-    The while loop will repeatedly request input data, until it is valid.
+    and of product quantity from the user via the terminal.
     """
 
     orders = []
@@ -76,6 +75,10 @@ def get_customer_orders():
 
 
 def validate_product():
+    """
+    I run a while loop to validate the inputed product name.
+    The loop raises an error statement until the input is valid.
+    """
     while True:
 
         product = input("Enter product name: \n")
@@ -88,7 +91,10 @@ def validate_product():
 
 
 def validate_quantity(product):
-
+    """
+    I run a while loop to validate the inputed quantity value.
+    The loop raises an error statement until the input is valid.
+    """
     while True:
 
         try:
@@ -159,7 +165,6 @@ def update_inventory():
 
 # Compare customer orders with available stock
 def check_inventory(orders):
-
     """
     Compare orders with stock and for each item product
     and report possibility of fulfilling order requests.
